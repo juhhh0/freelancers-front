@@ -8,6 +8,8 @@ import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material";
 import NewFreelancer from "./pages/NewFreelancer.tsx";
 import NewRecruiter from "./pages/NewRecruiter.tsx";
+import Login from "./pages/Login.tsx";
+import Signup from "./pages/Signup.tsx";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
   {
     path: "/new-recruiter",
     element: <NewRecruiter/>,
+  }, 
+  {
+    path: "/login",
+    element: <Login/>
+  }, 
+  {
+    path: "/signup",
+    element: <Signup/>
   }
 ]);
 

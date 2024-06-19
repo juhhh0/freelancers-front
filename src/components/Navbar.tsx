@@ -9,6 +9,8 @@ export default function Navbar() {
         <Link to="/">
           <Button>Home</Button>
         </Link>
+        <Link to="/login">
+        <Button>Login</Button></Link>
         {addMenu()}
       </div>
     </nav>

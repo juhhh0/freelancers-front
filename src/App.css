@@ -9,3 +9,7 @@ body {
 main{
   @apply mx-auto max-w-2xl w-full;
 }
+
+.user-form{
+  @apply flex flex-col gap-4 mt-10 p-10 bg-gray-700 rounded-md;
+}
