@@ -8,7 +8,7 @@ import {
   TextField,
 } from "@mui/material";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 
@@ -31,6 +31,9 @@ export default function Signup() {
   const [picture, setPicture] = useState("");
   const [title, setTitle] = useState("");
 
+  const navigate = useNavigate()
+
+
   const [addUser, { loading, error }] = useMutation(ADD_USER, {
     refetchQueries: ["GetUsers"],
   });
@@ -51,8 +54,7 @@ export default function Signup() {
     });
     
     if(!error){
-        console.log("redirect")
-        window.location.href = "/login"
+        navigate("/login")
     }
   };
 

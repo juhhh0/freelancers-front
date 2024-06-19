@@ -1,16 +1,34 @@
 import { Button, Menu, MenuItem } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useSignOut from "react-auth-kit/hooks/useSignOut";
+import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 
 export default function Navbar() {
+  const auth = useAuthUser();
+  const signOut = useSignOut();
+
+  const navigate = useNavigate()
+
+
+  const signout = () => {
+    signOut()
+    navigate("/login")
+  }
+
   return (
     <nav className="h-16 w-full left-0 top-0 px-2 py-4">
       <div className="max-w-4xl mx-auto font-bold text-xl flex gap-2 justify-center">
         <Link to="/">
           <Button>Home</Button>
         </Link>
-        <Link to="/login">
-        <Button>Login</Button></Link>
+        {auth ? (
+          <Button onClick={() => signout()}>Sign Out</Button>
+        ) : (
+          <Link to="/login">
+            <Button>Login</Button>
+          </Link>
+        )}
         {addMenu()}
       </div>
     </nav>
