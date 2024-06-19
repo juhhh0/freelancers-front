@@ -13,14 +13,13 @@ const ADD_REVIEW = gql`
 `;
 
 export default function ReviewForm({
-  recruiters,
   freelancer,
+  recruiter
 }: {
-  recruiters: RecruiterType[];
   freelancer: string;
+  recruiter: string;
 }) {
   const [rating, setRating] = useState(3);
-  const [recruiter, setRecruiter] = useState<string>();
   const [comment, setComment] = useState("");
 
   const [addReview, { data, loading, error }] = useMutation(ADD_REVIEW, {
@@ -31,7 +30,6 @@ export default function ReviewForm({
   if (error) return <p>Error : {error.message}</p>;
 
   const submit = () => {
-    console.log(freelancer, recruiter)
     addReview({
       variables: {
         review: {
@@ -56,18 +54,6 @@ export default function ReviewForm({
       onSubmit={submit}
     >
       <span>Submit your review</span>
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={recruiters}
-        sx={{ width: 300 }}
-        getOptionLabel={(option: any) => option.name}
-        // @ts-ignore
-        onChange={(e, value) => {
-          setRecruiter(value?.id);
-        }}
-        renderInput={(params) => <TextField {...params} label="Company" />}
-      />
       <TextField
         id="standard-basic"
         label="Comment"

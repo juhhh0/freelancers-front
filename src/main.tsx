@@ -50,33 +50,6 @@ const router = createBrowserRouter(
   )
 );
 
-const routerc = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "freelancer/:id",
-    element: <Freelancer />,
-  },
-  {
-    path: "/new-freelancer",
-    element: <NewFreelancer />,
-  },
-  {
-    path: "/new-recruiter",
-    element: <NewRecruiter />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-]);
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AuthProvider store={store}>

@@ -6,6 +6,8 @@ import ReviewForm from "../components/ReviewForm";
 import DeleteReview from "../components/DeleteReview";
 import ToggleAvaibility from "../components/ToggleAvaibility";
 import { ReviewType } from "../types/types";
+import useAuthUser from "react-auth-kit/hooks/useAuthUser";
+
 
 const GET_FREELANCER = gql`
   query GetUser($id: ID!) {
@@ -29,24 +31,15 @@ const GET_FREELANCER = gql`
   }
 `;
 
-const GET_RECRUITERS = gql`
-  query GetRecruiters {
-    recruiters {
-      id
-      name
-    }
-  }
-`;
-
-
 export default function Freelancer() {
   const { id } = useParams();
   const { loading, error, data } = useQuery(GET_FREELANCER, {
     variables: { id },
   });
 
-  const { data: recruitersData, loading: recruitersLoading, error: recruitersError } = useQuery(GET_RECRUITERS);
+  const auth: {id: string, role: string} | null = useAuthUser();
 
+  console.log(auth)
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
@@ -89,7 +82,7 @@ export default function Freelancer() {
             ))}
           </div>
         </article>
-        {(!recruitersLoading && !recruitersError) && <ReviewForm recruiters={recruitersData.recruiters} freelancer={data.user.id}/>}
+        {auth?.role == "recruiter" && <ReviewForm recruiter={auth.id} freelancer={data.user.id}/>}
       </main>
     </>
   );

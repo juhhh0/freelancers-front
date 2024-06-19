@@ -1,72 +1,81 @@
-import {
-  Button,
-  TextField,
-} from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import Navbar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-import useSignIn from 'react-auth-kit/hooks/useSignIn';
-
+import useSignIn from "react-auth-kit/hooks/useSignIn";
 
 const LOGIN_QUERY = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
-        id, token 
+      id
+      token
+      role
     }
   }
 `;
 
 export default function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    
-    const signIn = useSignIn();
-    const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [login, { loading, error }] = useMutation(LOGIN_QUERY);
+  const signIn = useSignIn();
+  const navigate = useNavigate();
 
-    const submit = async () => {
-        const {data} = await login({
-            variables: {
-                email: email,
-                password: password,
-            },
-        });
+  const [login, { loading, error }] = useMutation(LOGIN_QUERY);
 
-        if(!error && signIn({
-            auth: {
-                token: data.login.token,
-                type: 'Bearer'
-            },
-            userState: {
-                id: data.login.id,
-            }
-        })){
-            navigate("/")
+  const submit = async () => {
+    const { data } = await login({
+      variables: {
+        email: email,
+        password: password,
+      },
+    });
 
-        }else {
-            console.log(error?.message)
-        }
-
-
+    if (
+      !error &&
+      signIn({
+        auth: {
+          token: data.login.token,
+          type: "Bearer",
+        },
+        userState: {
+          id: data.login.id,
+          role: data.login.role,
+        },
+      })
+    ) {
+      navigate("/");
+    } else {
+      console.log(error?.message);
     }
+  };
   return (
     <main>
       <Navbar />
       <form
-      onSubmit={(e) => {
-        e.preventDefault()
-        submit()
-      }}
+        onSubmit={(e) => {
+          e.preventDefault();
+          submit();
+        }}
         className="user-form"
       >
-        <TextField type="email" variant="outlined" label="Email" onChange={(e) => {
+        <TextField
+          type="email"
+          variant="outlined"
+          label="Email"
+          onChange={(e) => {
             setEmail(e.target.value);
-        }} />
-        <TextField type="password" variant="outlined" label="Password" onChange={(e) => {
+          }}
+        />
+        <TextField
+          type="password"
+          variant="outlined"
+          label="Password"
+          onChange={(e) => {
             setPassword(e.target.value);
-        }}  />
+          }}
+        />
         <div className="w-full flex justify-between items-center">
           <span>
             No account?{" "}
@@ -74,7 +83,9 @@ export default function Login() {
               Sign up
             </Link>
           </span>
-          <Button type="submit" className="w-fit">Login</Button>
+          <Button type="submit" className="w-fit">
+            Login
+          </Button>
         </div>
         {error && <p>{error.message}</p>}
       </form>
