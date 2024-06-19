@@ -41,6 +41,7 @@ export default function ReviewForm({
         },
       },
     });
+    console.log(data)
   };
 
   if (loading) return "Submitting...";
@@ -59,6 +60,7 @@ export default function ReviewForm({
         options={recruiters}
         sx={{ width: 300 }}
         getOptionLabel={(option: any) => option.name}
+        // @ts-ignore
         onChange={(e, value) => {
           setRecruiter(value?.id);
         }}
@@ -76,6 +78,7 @@ export default function ReviewForm({
       <Rating
         name="simple-controlled"
         value={rating}
+        // @ts-ignore
         onChange={(event, newValue) => {
           setRating(newValue as number);
         }}

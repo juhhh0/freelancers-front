@@ -28,6 +28,7 @@ export default function NewRecruiter() {
         },
       },
     });
+    console.log(data)
   };
 
   if (loading) return "Submitting...";

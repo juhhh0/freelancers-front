@@ -89,7 +89,7 @@ export default function Freelancer() {
             ))}
           </div>
         </article>
-        <ReviewForm recruiters={recruitersData.recruiters} freelancer={data.freelancer.id}/>
+        {(!recruitersLoading && !recruitersError) && <ReviewForm recruiters={recruitersData.recruiters} freelancer={data.freelancer.id}/>}
       </main>
     </>
   );

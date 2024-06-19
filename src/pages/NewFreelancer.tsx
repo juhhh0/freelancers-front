@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import { Button, TextField } from "@mui/material";
 import { gql, useMutation } from "@apollo/client";
@@ -33,6 +33,7 @@ export default function NewFreelancer() {
         },
       },
     });
+    console.log(data)
   };
 
   if (loading) return "Submitting...";
