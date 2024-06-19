@@ -24,3 +24,8 @@ export type RecruiterType = {
     picture: string;
     reviews: ReviewType[];
 }
+
+export type AuthType = {
+    id: string;
+    role: string;
+}
