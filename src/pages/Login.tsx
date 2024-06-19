@@ -51,44 +51,46 @@ export default function Login() {
     }
   };
   return (
-    <main>
+    <>
       <Navbar />
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          submit();
-        }}
-        className="user-form"
-      >
-        <TextField
-          type="email"
-          variant="outlined"
-          label="Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
+      <main>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            submit();
           }}
-        />
-        <TextField
-          type="password"
-          variant="outlined"
-          label="Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <div className="w-full flex justify-between items-center">
-          <span>
-            No account?{" "}
-            <Link className="underline" to={"/signup"}>
-              Sign up
-            </Link>
-          </span>
-          <Button type="submit" className="w-fit">
-            Login
-          </Button>
-        </div>
-        {error && <p>{error.message}</p>}
-      </form>
-    </main>
+          className="user-form"
+        >
+          <TextField
+            type="email"
+            variant="outlined"
+            label="Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <TextField
+            type="password"
+            variant="outlined"
+            label="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <div className="w-full flex justify-between items-center">
+            <span>
+              No account?{" "}
+              <Link className="underline" to={"/signup"}>
+                Sign up
+              </Link>
+            </span>
+            <Button type="submit" className="w-fit">
+              Login
+            </Button>
+          </div>
+          {error && <p>{error.message}</p>}
+        </form>
+      </main>
+    </>
   );
 }
