@@ -44,6 +44,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route element={<AuthOutlet fallbackPath="/login" />}>
         <Route path="/" element={<App />} />
+        <Route path="/freelancer/:id" element={<Freelancer />} />
       </Route>
     </>
   )

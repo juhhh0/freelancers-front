@@ -8,8 +8,8 @@ import ToggleAvaibility from "../components/ToggleAvaibility";
 import { ReviewType } from "../types/types";
 
 const GET_FREELANCER = gql`
-  query GetFreelancer($id: ID!) {
-    freelancer(id: $id) {
+  query GetUser($id: ID!) {
+    user(id: $id) {
       id
       name
       picture
@@ -55,24 +55,24 @@ export default function Freelancer() {
       <Navbar />
       <main>
         <article className="flex gap-3">
-          <img src={data.freelancer.picture} alt="" className="rounded-lg w-40" />
+          <img src={data.user.picture} alt="" className="rounded-lg w-40" />
           <div className="relative w-full">
-            <h2 className="text-2xl font-bold">{data.freelancer.name}</h2>
-            <h3>{data.freelancer.title}</h3>
+            <h2 className="text-2xl font-bold">{data.user.name}</h2>
+            <h3>{data.user.title}</h3>
             <p className="text-sm">
-              Skills : {data.freelancer.skills.join(", ")}
+              Skills : {data.user.skills.join(", ")}
             </p>
-            {data.freelancer.available ? (
+            {data.user.available ? (
               <p className="text-green-500 absolute left-0 bottom-0">Available</p>
             ) : (
               <p className="text-red-500 absolute left-0 bottom-0">Not Available</p>
             )}
-            <ToggleAvaibility available={data.freelancer.available} id={data.freelancer.id}/>
+            <ToggleAvaibility available={data.user.available} id={data.user.id}/>
           </div>
         </article>
         <article className="pt-10">
           <div className="flex flex-wrap gap-3">
-            {data.freelancer.reviews.map((review: ReviewType) => (
+            {data.user.reviews.map((review: ReviewType) => (
               <div key={review.id} className="flex relative gap-2 bg-gray-800 p-3 rounded-lg min-w-xl min-w-[330px]">
                 <img
                   src={review.recruiter.picture}
@@ -89,7 +89,7 @@ export default function Freelancer() {
             ))}
           </div>
         </article>
-        {(!recruitersLoading && !recruitersError) && <ReviewForm recruiters={recruitersData.recruiters} freelancer={data.freelancer.id}/>}
+        {(!recruitersLoading && !recruitersError) && <ReviewForm recruiters={recruitersData.recruiters} freelancer={data.user.id}/>}
       </main>
     </>
   );

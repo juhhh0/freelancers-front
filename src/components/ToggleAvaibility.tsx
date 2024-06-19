@@ -2,8 +2,8 @@ import { gql, useMutation } from "@apollo/client";
 import { Button } from "@mui/material";
 
 const TOGGLE_AVAIBILITY = gql`
-  mutation ToggleAvaibility($id: ID!, $freelancer: UpdateFreelancerInput!) {
-    updateFreelancer(id: $id, freelancer: $freelancer) {
+  mutation ToggleAvaibility($id: ID!, $user: UpdateUserInput!) {
+    updateUser(id: $id, user: $user) {
       available
     }
   }
@@ -16,19 +16,22 @@ export default function ToggleAvaibility({
   available: boolean;
   id: string;
 }) {
-  const [toggleAvaibility] = useMutation(TOGGLE_AVAIBILITY, {
-    refetchQueries: ["GetFreelancer"],
+  const [updateUser] = useMutation(TOGGLE_AVAIBILITY, {
+    refetchQueries: ["GetUser"],
   });
 
   const submit = () => {
-    toggleAvaibility({
+    updateUser({
       variables: {
         id: id,
-        freelancer: {
+        user: {
           available: !available,
         },
       },
     });
+    console.log("heerorr")
+
+
   };
 
   return (

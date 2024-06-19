@@ -24,13 +24,14 @@ export default function ReviewForm({
   const [comment, setComment] = useState("");
 
   const [addReview, { data, loading, error }] = useMutation(ADD_REVIEW, {
-    refetchQueries: ["GetFreelancer"],
+    refetchQueries: ["GetUser"],
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
   const submit = () => {
+    console.log(freelancer, recruiter)
     addReview({
       variables: {
         review: {
@@ -43,6 +44,7 @@ export default function ReviewForm({
     });
     console.log(data)
   };
+
 
   if (loading) return "Submitting...";
   if (error) return `Submission error!`;
