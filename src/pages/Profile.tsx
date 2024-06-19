@@ -49,7 +49,7 @@ export default function Profile() {
       <Navbar />
       <main>
         <article className="flex gap-3">
-          <img src={data.user.picture || "https://i.pravatar.cc/150?img=68"} alt="" className="rounded-lg w-40" />
+          <img src={data.user.picture || "https://i.pravatar.cc/150?img=68"} alt="" className="rounded-lg w-40 h-40 object-cover" />
           <div className="relative w-full">
             <h2 className="text-2xl font-bold">{data.user.name}</h2>
             <h3>{data.user.title}</h3>
@@ -71,7 +71,7 @@ export default function Profile() {
                 <img
                   src={review.recruiter.picture}
                   alt=""
-                  className="w-12 h-12 rounded-full"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
                   <h5 className="font-bold">{review.recruiter.name}</h5>
