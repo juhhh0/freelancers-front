@@ -23,6 +23,7 @@ const GET_FREELANCER = gql`
         comment
         rating
         recruiter {
+          id
           name
           picture
         }
@@ -31,7 +32,7 @@ const GET_FREELANCER = gql`
   }
 `;
 
-export default function Freelancer() {
+export default function Profile() {
   const { id } = useParams();
   const { loading, error, data } = useQuery(GET_FREELANCER, {
     variables: { id },
@@ -60,7 +61,7 @@ export default function Freelancer() {
             ) : (
               <p className="text-red-500 absolute left-0 bottom-0">Not Available</p>
             )}
-            <ToggleAvaibility available={data.user.available} id={data.user.id}/>
+          { auth?.id === data.user.id && <ToggleAvaibility available={data.user.available} id={data.user.id}/>}
           </div>
         </article>
         <article className="pt-10">
@@ -77,7 +78,7 @@ export default function Freelancer() {
                   <Rating name="read-only" value={review.rating} readOnly />
                   <p className="text-slate-300">{review.comment}</p>
                 </div>
-                <DeleteReview id={review.id}/>
+                {auth?.id === review.recruiter.id && <DeleteReview id={review.id}/>}
               </div>
             ))}
           </div>

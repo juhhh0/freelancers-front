@@ -18,7 +18,7 @@ export default function FreelancersList({data, filters}: {data: FreelancerType[]
   return (
     <div className="flex gap-2 flex-wrap mt-6">
     {freelancers.map((freelancer: FreelancerType) => (
-      <Link key={freelancer.id} to={`/freelancer/${freelancer.id}`}>
+      <Link key={freelancer.id} to={`/profile/${freelancer.id}`}>
         <div
           key={freelancer.id}
           className="bg-gray-800 rounded-lg flex flex-col"

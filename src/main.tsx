@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import Freelancer from "./pages/Freelancer.tsx";
+import Profile from "./pages/Profile.tsx";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -11,8 +11,6 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material";
-import NewFreelancer from "./pages/NewFreelancer.tsx";
-import NewRecruiter from "./pages/NewRecruiter.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import AuthOutlet from "@auth-kit/react-router/AuthOutlet";
@@ -44,7 +42,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route element={<AuthOutlet fallbackPath="/login" />}>
         <Route path="/" element={<App />} />
-        <Route path="/freelancer/:id" element={<Freelancer />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Route>
     </>
   )
