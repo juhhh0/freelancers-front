@@ -76,6 +76,7 @@ export default function Login() {
           </span>
           <Button type="submit" className="w-fit">Login</Button>
         </div>
+        {error && <p>{error.message}</p>}
       </form>
     </main>
   );

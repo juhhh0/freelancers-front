@@ -55,7 +55,7 @@ export default function Freelancer() {
       <Navbar />
       <main>
         <article className="flex gap-3">
-          <img src={data.user.picture} alt="" className="rounded-lg w-40" />
+          <img src={data.user.picture || "https://i.pravatar.cc/150?img=68"} alt="" className="rounded-lg w-40" />
           <div className="relative w-full">
             <h2 className="text-2xl font-bold">{data.user.name}</h2>
             <h3>{data.user.title}</h3>

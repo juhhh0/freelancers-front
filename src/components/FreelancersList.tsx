@@ -24,7 +24,7 @@ export default function FreelancersList({data, filters}: {data: FreelancerType[]
           className="bg-gray-800 rounded-lg flex flex-col"
         >
           <img
-            src={freelancer.picture}
+            src={freelancer.picture || "https://i.pravatar.cc/150?img=68"}
             className="rounded-lg w-40 h-40 object-cover"
             alt=""
           />
