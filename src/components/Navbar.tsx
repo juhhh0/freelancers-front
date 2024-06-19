@@ -22,15 +22,22 @@ export default function Navbar() {
           <Button>Home</Button>
         </Link>
         <div>
-          <Link to={"/profile/" + auth?.id}>
-            <Button>Profile</Button>
-          </Link>
           {auth ? (
-            <Button onClick={() => signout()}>Sign Out</Button>
+            <>
+              <Link to={"/profile/" + auth?.id}>
+                <Button>Profile</Button>
+              </Link>
+              <Button onClick={() => signout()}>Sign Out</Button>
+            </>
           ) : (
+            <>
             <Link to="/login">
               <Button>Login</Button>
             </Link>
+            <Link to="/signup">
+              <Button>Sign up</Button>
+            </Link>
+            </>
           )}
         </div>
       </div>
