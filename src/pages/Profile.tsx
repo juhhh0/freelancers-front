@@ -86,7 +86,7 @@ export default function Profile() {
           </article>
         )}
 
-        {auth?.role == "recruiter" && (
+        {(auth?.role == "recruiter" && data.user.role == "freelancer") && (
           <ReviewForm recruiter={auth.id} freelancer={data.user.id} />
         )}
       </main>
