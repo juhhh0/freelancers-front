@@ -19,7 +19,7 @@ export default function RecruitersCaroussel() {
   return (
     <section className='mt-10'>
         <h2 className='mb-5 text-2xl font-bold'>They are recruiting !</h2>
-        <div className='flex flex-wrap gap-6'>
+        <div className='flex flex-wrap gap-6 justify-center md:justify-start'>
             {data.recruiters.map((recruiter: any) => (
                 <div key={recruiter.id} className='flex flex-col items-center'>
                     <img src={recruiter.picture || 'https://i.pravatar.cc/150?img=68'} className='rounded-full w-20 h-20 object-cover' alt='' />
