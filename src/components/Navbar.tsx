@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="h-16 w-full left-0 top-0 py-4">
+    <nav className="h-16 w-full left-0 top-0 py-4 px-4 md:px-0">
       <div className="max-w-4xl mx-auto font-bold text-xl flex gap-2 justify-between">
         <Link to="/">
           <Button>Home</Button>

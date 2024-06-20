@@ -48,11 +48,11 @@ export default function Profile() {
     <>
       <Navbar />
       <main>
-        <article className="flex gap-3">
+        <article className="flex flex-col md:flex-row gap-3">
           <img
             src={data.user.picture || "https://i.pravatar.cc/150?img=68"}
             alt=""
-            className="rounded-lg w-40 h-40 object-cover"
+            className="rounded-lg w-40 h-40 object-cover mx-auto"
           />
           <div className="relative w-full">
             <h2 className="text-2xl font-bold">{data.user.name}</h2>
