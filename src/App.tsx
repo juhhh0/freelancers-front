@@ -13,6 +13,9 @@ const GET_FREELANCERS = gql`
       skills
       available
       title
+      reviews {
+        rating
+      }
     }
   }
 `;

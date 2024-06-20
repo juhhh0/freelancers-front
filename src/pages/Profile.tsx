@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import ReviewForm from "../components/ReviewForm";
 import DeleteReview from "../components/DeleteReview";
 import ToggleAvaibility from "../components/ToggleAvaibility";
-import { AuthType, ReviewType } from "../types/types";
+import { AuthType, ReviewType } from "../utils/types/types";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 
 const GET_FREELANCER = gql`
