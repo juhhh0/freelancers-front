@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Filter from "./components/Freelancer/Filter";
 import { useState } from "react";
 import FreelancersList from "./components/Freelancer/FreelancersList";
+import RecruitersCaroussel from "./components/RecruitersCaroussel";
 
 const GET_FREELANCERS = gql`
   query GetFreelancers {
@@ -36,6 +37,7 @@ export default function App() {
           <Filter setFilters={setFilters} />
           <FreelancersList data={data.freelancers} filters={filters} />
         </section>
+        <RecruitersCaroussel/>
       </main>
     </>
   );
