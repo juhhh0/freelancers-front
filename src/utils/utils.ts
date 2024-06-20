@@ -1,6 +1,4 @@
-import { ReviewType } from "./types/types";
-
-export const getAverageRating = (reviews: ReviewType[]) => {
+export const getAverageRating = (reviews: {rating: number}[]) => {
 
     if(reviews?.length === 0) return null;
 
