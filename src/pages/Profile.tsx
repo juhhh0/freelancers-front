@@ -7,6 +7,7 @@ import DeleteReview from "../components/Review/DeleteReview";
 import ToggleAvaibility from "../components/Freelancer/ToggleAvaibility";
 import { AuthType, ReviewType } from "../utils/types/types";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
+import ProfileSkills from "../components/Freelancer/ProfileSkills";
 
 const GET_FREELANCER = gql`
   query GetUser($id: ID!) {
@@ -101,13 +102,16 @@ const FreelancerInfos = ({
   auth: AuthType | null;
 }) => (
   <>
+  <div>
     <h3>{data.user.title}</h3>
-    <p className="text-sm">Skills : {data.user.skills.join(", ")}</p>
     {data.user.available ? (
-      <p className="text-green-500 absolute left-0 bottom-0">Available</p>
+      <p className="text-green-500">Available</p>
     ) : (
-      <p className="text-red-500 absolute left-0 bottom-0">Not Available</p>
+      <p className="text-red-500">Not Available</p>
     )}
+  </div>
+    <ProfileSkills userId={data.user.id} userSkills={data.user.skills} auth={auth}/>
+
     {auth?.id === data.user.id && (
       <ToggleAvaibility available={data.user.available} id={data.user.id} />
     )}
