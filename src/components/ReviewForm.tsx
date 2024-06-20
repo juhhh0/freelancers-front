@@ -1,7 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
-import { Autocomplete, Rating, TextField } from "@mui/material";
+import { Rating, TextField } from "@mui/material";
 import { useState } from "react";
-import { RecruiterType } from "../types/types";
 
 const ADD_REVIEW = gql`
   mutation AddReview($review: AddReviewInput!) {
