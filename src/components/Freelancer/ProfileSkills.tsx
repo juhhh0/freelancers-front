@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AuthType } from "../../utils/types/types";
 
 const NEW_SKILL = gql`
