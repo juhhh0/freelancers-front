@@ -26,7 +26,7 @@ export default function Navbar() {
               <Link to={"/profile/" + auth?.id}>
                 <Button>Profile</Button>
               </Link>
-              <Button onClick={() => signout()}>Sign Out</Button>
+              <Button color="error" onClick={() => signout()}>Sign Out</Button>
             </>
           ) : (
             <>

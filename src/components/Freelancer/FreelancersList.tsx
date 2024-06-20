@@ -31,7 +31,7 @@ export default function FreelancersList({
     }
   }, [filters]);
   return (
-    <div className="flex gap-2 flex-wrap mt-6">
+    <div className="flex gap-2 flex-wrap mt-6 justify-center md:justify-normal">
       {freelancers.map((freelancer: FreelancerType) => {
         let averageRating = null;
         if (freelancer.reviews.length > 0) {
