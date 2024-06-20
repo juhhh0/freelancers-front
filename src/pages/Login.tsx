@@ -22,7 +22,7 @@ export default function Login() {
   const signIn = useSignIn();
   const navigate = useNavigate();
 
-  const [login, { error }] = useMutation(LOGIN_QUERY);
+  const [login, { error }] = useMutation(LOGIN_QUERY, {refetchQueries: ["GetFreelancers", "GetRecruiters"]});
 
   const submit = async () => {
     const { data } = await login({
