@@ -62,6 +62,7 @@ export default function Signup() {
       <Navbar />
       <main>
         <form action="" className="user-form" onSubmit={submit}>
+          <h2 className="text-2xl font-bold mx-auto">Sign up</h2>
           <TextField
             type="email"
             onChange={(e) => setEmail(e.target.value)}

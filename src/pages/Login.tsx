@@ -61,6 +61,7 @@ export default function Login() {
           }}
           className="user-form"
         >
+          <h2 className="text-2xl font-bold mx-auto">Login</h2>
           <TextField
             type="email"
             variant="outlined"
