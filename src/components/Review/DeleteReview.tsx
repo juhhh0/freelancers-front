@@ -11,8 +11,8 @@ const DELETE_REVIEW = gql`
 
 export default function DeleteReview({id}: {id: string}) {
 
-    const [deleteReview, { data, loading, error }] = useMutation(DELETE_REVIEW, {
-        refetchQueries: ["GetFreelancer"],
+    const [deleteReview, { loading, error }] = useMutation(DELETE_REVIEW, {
+        refetchQueries: ["GetUser"],
       });
 
     const submit = () => { 
@@ -21,7 +21,6 @@ export default function DeleteReview({id}: {id: string}) {
                 id: id
             }
         })
-        console.log(data)
     }
     if (loading) return "Submitting...";
     if (error) return `Submission error!`;
