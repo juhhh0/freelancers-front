@@ -137,7 +137,7 @@ export default function Signup() {
               {loading ? <img src="/spinner.svg" alt="" /> : "Sign up"}
             </Button>
           </div>
-          {error && <p>{error.message}</p>}
+          {error && <p className="text-red-500">{error.message}</p>}
         </form>
       </main>
     </>

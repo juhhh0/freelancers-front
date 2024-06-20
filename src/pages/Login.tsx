@@ -89,7 +89,7 @@ export default function Login() {
               Login
             </Button>
           </div>
-          {error && <p>{error.message}</p>}
+          {error && <p className="text-red-500">{error.message}</p>}
         </form>
       </main>
     </>
