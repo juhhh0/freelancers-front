@@ -32,7 +32,7 @@ export default function App() {
       <Navbar />
       <main>
         <section>
-          <h2 className="mb-5">Our freelancers</h2>
+          <h2 className="mb-5 text-2xl font-bold">Our freelancers</h2>
           <Filter setFilters={setFilters} />
           <FreelancersList data={data.freelancers} filters={filters} />
         </section>
