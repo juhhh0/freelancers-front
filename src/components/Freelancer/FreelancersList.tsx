@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FreelancerType } from "../utils/types/types";
-import { getAverageRating } from "../utils/utils";
+import { FreelancerType } from "../../utils/types/types";
+import { getAverageRating } from "../../utils/utils";
 import { Rating } from "@mui/material";
 
 export default function FreelancersList({

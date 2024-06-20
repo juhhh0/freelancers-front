@@ -2,9 +2,9 @@ import { gql, useQuery } from "@apollo/client";
 import { Rating } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import ReviewForm from "../components/ReviewForm";
-import DeleteReview from "../components/DeleteReview";
-import ToggleAvaibility from "../components/ToggleAvaibility";
+import ReviewForm from "../components/Review/ReviewForm";
+import DeleteReview from "../components/Review/DeleteReview";
+import ToggleAvaibility from "../components/Freelancer/ToggleAvaibility";
 import { AuthType, ReviewType } from "../utils/types/types";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 

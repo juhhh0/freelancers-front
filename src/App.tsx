@@ -1,8 +1,8 @@
 import { useQuery, gql } from "@apollo/client";
 import Navbar from "./components/Navbar";
-import Filter from "./components/Filter";
+import Filter from "./components/Freelancer/Filter";
 import { useState } from "react";
-import FreelancersList from "./components/FreelancersList";
+import FreelancersList from "./components/Freelancer/FreelancersList";
 
 const GET_FREELANCERS = gql`
   query GetFreelancers {
